@@ -14,6 +14,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
@@ -79,7 +80,20 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Make code look pretty (not sure if this effects anything) 
 let python_highlight_all=1
-syntax on
+syntax enable  
+
+" Use 256 colors (use this setting only if your terminal supports 256 colors)
+set t_Co=256
+
+" Set background
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+" Set colorscheme
+colorscheme solarized 
 
 " NERDTree toggle mapping
 map <C-n> :NERDTreeTabsToggle<CR>
@@ -92,6 +106,3 @@ set nu
 
 " Show Vim statusline
 set laststatus=2
-
-" Use 256 colors (use this setting only if your terminal supports 256 colors)
-set t_Co=256
